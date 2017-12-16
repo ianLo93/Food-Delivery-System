@@ -1,6 +1,6 @@
 # Food Delevery System - Software Development Project
 
-JIANHUI LU, WEIRAN YUAN, LI CHEN
+Group Members: JIANHUI LU, WEIRAN YUAN, LI CHEN
 
 Final Project for RPI course Software Development_6700: Create a 3-tier application. Materials has included in this repository
 
