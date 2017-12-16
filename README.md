@@ -1,5 +1,11 @@
 # Food Delevery System - Software Development Project
-This repository is created for my SD final project. The project is about developing a three-tier web application and help us to 
-build a basic understanding of the SD development and SD management. 
+
+Final Project for RPI course Software Development_6700: Create a 3-tier application. Materials has included in this repository
+
+Final Project PDF: https://github.com/ianLo93/SDproject/blob/master/Project%20Material/ITWS_SD_Project_F17.pdf
 
 Githud is used as a version control tool to manage the development process of our project. 
+
+## APP User Interface
+
+![HOME](https://image.ibb.co/iARYFR/We_Chat_Image_20171216003111.png)
