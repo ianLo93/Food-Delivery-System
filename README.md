@@ -1,5 +1,7 @@
 # Food Delevery System - Software Development Project
 
+JIANHUI LU, WEIRAN YUAN, LI CHEN
+
 Final Project for RPI course Software Development_6700: Create a 3-tier application. Materials has included in this repository
 
 Final Project PDF: https://github.com/ianLo93/SDproject/blob/master/Project%20Material/ITWS_SD_Project_F17.pdf
