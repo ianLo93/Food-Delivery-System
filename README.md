@@ -2,12 +2,10 @@
 
 Group Members: JIANHUI LU, WEIRAN YUAN, LI CHEN
 
-Final Project for RPI course Software Development_6700: Create a 3-tier application. Materials has included in this repository
+Final Project for RPI course Software Development_6700: Create a 3-tier application. 
 
-Final Project PDF: https://github.com/ianLo93/SDproject/blob/master/Project%20Material/ITWS_SD_Project_F17.pdf
+Final Project Hand-out: https://github.com/ianLo93/SDproject/blob/master/Project%20Material/ITWS_SD_Project_F17.pdf
 
-Githud is used as a version control tool to manage the development process of our project. 
+## Set up
 
-## APP User Interface
-
-![HOME](https://image.ibb.co/iARYFR/We_Chat_Image_20171216003111.png)
+You must install Eclipse, Java and tomcat to run the website on your computer
