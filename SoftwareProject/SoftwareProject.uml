@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:PapyrusJava="http://www.eclipse.org/papyrus/PapyrusJava/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_L1_l8N6qEeekwO7coyw4BA" name="SoftwareProject">
+    <packagedElement xmi:type="uml:Package" xmi:id="_X1Q0UN6qEeekwO7coyw4BA" name="SoftwareProject">
+      <packagedElement xmi:type="uml:Package" xmi:id="_X6iV4N6qEeekwO7coyw4BA" name="jconnect">
+        <packagedElement xmi:type="uml:Package" xmi:id="_X6jkAN6qEeekwO7coyw4BA" name="database">
+          <packagedElement xmi:type="uml:Class" xmi:id="_X6mAQN6qEeekwO7coyw4BA" name="ReviewMenu" visibility="public">
+            <generalization xmi:type="uml:Generalization" xmi:id="_4qYQMN6qEeekwO7coyw4BA" general="_g28QMN6qEeekwO7coyw4BA"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_X6134N6qEeekwO7coyw4BA" name="current_restaurant_id" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_X_0egN6qEeekwO7coyw4BA" name="current_restaurant_name" visibility="private" type="_X66wYN6qEeekwO7coyw4BA" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_X_26wN6qEeekwO7coyw4BA" name="delivery_fee" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_YAArwN6qEeekwO7coyw4BA" name="dish" visibility="public" type="_X_5XAN6qEeekwO7coyw4BA" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_YADIAN6qEeekwO7coyw4BA" name="category" visibility="public" type="_X_5XAN6qEeekwO7coyw4BA" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_YAEWIN6qEeekwO7coyw4BA" name="restaurant_image_path" visibility="private" type="_X66wYN6qEeekwO7coyw4BA" isUnique="false"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YAX4IN6qEeekwO7coyw4BA" name="getRestaurantImage_path" specification="_YAE9MN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return restaurant_image_path;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YAfM4N6qEeekwO7coyw4BA" name="setRestaurantImage_path" specification="_YAcJkN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    this.restaurant_image_path = image_path;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YAsBMN6qEeekwO7coyw4BA" name="ReviewMenu" specification="_YAhpIN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    setCurrent_restaurant_id(restaurant_id);
+    Connection con = DatabaseInfo.connect2database();
+    String sql = &quot;SELECT * FROM restaurant WHERE id = &quot; + current_restaurant_id + &quot;;&quot;;
+    try {
+        PreparedStatement st = con.prepareStatement(sql);
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            setCurrent_restaurant_name(rs.getString(2));
+            setDelivery_fee(rs.getFloat(4));
+            setRestaurantImage_path(rs.getString(5));
+        }
+    } catch (Exception e) {
+        System.out.println(&quot;ReviewNemu Error&quot;);
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+    }
+    setCategory();
+    setDish();
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YAxgwN6qEeekwO7coyw4BA" name="getCurrent_restaurant_name" specification="_YAt2YN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return current_restaurant_name;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YA41gN6qEeekwO7coyw4BA" name="setCurrent_restaurant_name" specification="_YAzV8N6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    this.current_restaurant_name = current_restaurant_name;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YA-8IN6qEeekwO7coyw4BA" name="getCurrent_restaurant_id" specification="_YA8f4N6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return current_restaurant_id;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YBHfAN6qEeekwO7coyw4BA" name="setCurrent_restaurant_id" specification="_YBCmgN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    this.current_restaurant_id = current_restaurant_id;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YBM-kd6qEeekwO7coyw4BA" name="getDelivery_fee" specification="_YBLwcN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return delivery_fee;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YBU6YN6qEeekwO7coyw4BA" name="setDelivery_fee" specification="_YBRQAN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    this.delivery_fee = delivery_fee;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YBc2MN6qEeekwO7coyw4BA" name="getDish" specification="_YBX9sN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return dish;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YBggkN6qEeekwO7coyw4BA" name="setDish" specification="_YBfScN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    Connection con = DatabaseInfo.connect2database();
+    String sql = &quot;SELECT * FROM dishes WHERE restaurant_id = &quot; + current_restaurant_id + &quot;;&quot;;
+    try {
+        PreparedStatement st = con.prepareStatement(sql);
+        ResultSet rs = st.executeQuery();
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int column = rsmd.getColumnCount();
+        ArrayList&lt;ArrayList&lt;String>> result = new ArrayList&lt;ArrayList&lt;String>>();
+        while (rs.next()) {
+            ArrayList&lt;String> temp = new ArrayList&lt;String>();
+            for (int i = 1; i &lt;= column; i++) {
+                temp.add(rs.getString(i));
+            }
+            result.add(temp);
+        }
+        this.dish = result;
+    } catch (Exception e) {
+        System.out.println(&quot;setDish Error&quot;);
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+        this.dish = null;
+    }
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YBmnMN6qEeekwO7coyw4BA" name="getCategory" specification="_YBiVwN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return category;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YBst0N6qEeekwO7coyw4BA" name="setCategory" specification="_YBrfsN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    Connection con = DatabaseInfo.connect2database();
+    String sql = &quot;SELECT DISTINCT category FROM dishes WHERE restaurant_id = &quot; + current_restaurant_id + &quot;;&quot;;
+    try {
+        PreparedStatement st = con.prepareStatement(sql);
+        ResultSet rs = st.executeQuery();
+        ArrayList&lt;String> result = new ArrayList&lt;String>();
+        while (rs.next()) {
+            result.add(rs.getString(1));
+        }
+        this.category = result;
+    } catch (Exception e) {
+        System.out.println(&quot;setCategory Error&quot;);
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+        this.category = null;
+    }
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_YB13wN6qEeekwO7coyw4BA" name="getDishByCategory" specification="_YBxmUN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    Connection con = DatabaseInfo.connect2database();
+    String sql = &quot;SELECT * FROM dishes WHERE restaurant_id = &quot; + current_restaurant_id + &quot;AND category = '&quot; + Category + &quot;';&quot;;
+    try {
+        PreparedStatement st = con.prepareStatement(sql);
+        ResultSet rs = st.executeQuery();
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int column = rsmd.getColumnCount();
+        ArrayList&lt;ArrayList&lt;String>> result = new ArrayList&lt;ArrayList&lt;String>>();
+        while (rs.next()) {
+            ArrayList&lt;String> temp = new ArrayList&lt;String>();
+            for (int i = 1; i &lt;= column; i++) {
+                temp.add(rs.getString(i));
+            }
+            result.add(temp);
+        }
+        return result;
+    } catch (Exception e) {
+        System.out.println(&quot;getDishByCategory Error&quot;);
+        System.out.println(Category);
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+        return null;
+    }
+</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YAE9MN6qEeekwO7coyw4BA" name="getRestaurantImage_path" visibility="public" method="_YAX4IN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YAIAgN6qEeekwO7coyw4BA" type="_X66wYN6qEeekwO7coyw4BA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YAcJkN6qEeekwO7coyw4BA" name="setRestaurantImage_path" visibility="private" method="_YAfM4N6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YAd-wN6qEeekwO7coyw4BA" name="image_path" type="_X66wYN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YAhpIN6qEeekwO7coyw4BA" name="ReviewMenu" visibility="public" method="_YAsBMN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YAqMAN6qEeekwO7coyw4BA" name="restaurant_id">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YAt2YN6qEeekwO7coyw4BA" name="getCurrent_restaurant_name" visibility="public" method="_YAxgwN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YAwSoN6qEeekwO7coyw4BA" type="_X66wYN6qEeekwO7coyw4BA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YAzV8N6qEeekwO7coyw4BA" name="setCurrent_restaurant_name" visibility="private" method="_YA41gN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YA0kEN6qEeekwO7coyw4BA" name="current_restaurant_name" type="_X66wYN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YA8f4N6qEeekwO7coyw4BA" name="getCurrent_restaurant_id" visibility="public" method="_YA-8IN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YA9uAN6qEeekwO7coyw4BA" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YBCmgN6qEeekwO7coyw4BA" name="setCurrent_restaurant_id" visibility="private" method="_YBHfAN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YBGQ4N6qEeekwO7coyw4BA" name="current_restaurant_id">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YBLwcN6qEeekwO7coyw4BA" name="getDelivery_fee" visibility="public" method="_YBM-kd6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YBM-kN6qEeekwO7coyw4BA" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YBRQAN6qEeekwO7coyw4BA" name="setDelivery_fee" visibility="private" method="_YBU6YN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YBTFMN6qEeekwO7coyw4BA" name="delivery_fee">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YBX9sN6qEeekwO7coyw4BA" name="getDish" visibility="public" method="_YBc2MN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YBZL0N6qEeekwO7coyw4BA" type="_X_5XAN6qEeekwO7coyw4BA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YBfScN6qEeekwO7coyw4BA" name="setDish" visibility="private" method="_YBggkN6qEeekwO7coyw4BA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YBiVwN6qEeekwO7coyw4BA" name="getCategory" visibility="public" method="_YBmnMN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YBkK8N6qEeekwO7coyw4BA" type="_X_5XAN6qEeekwO7coyw4BA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YBrfsN6qEeekwO7coyw4BA" name="setCategory" visibility="public" method="_YBst0N6qEeekwO7coyw4BA"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_YBxmUN6qEeekwO7coyw4BA" name="getDishByCategory" visibility="public" method="_YB13wN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YByNYN6qEeekwO7coyw4BA" type="_X_5XAN6qEeekwO7coyw4BA" direction="return"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_YB0poN6qEeekwO7coyw4BA" name="Category" type="_X66wYN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_X_5XAN6qEeekwO7coyw4BA" name="ArrayList"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_g28QMN6qEeekwO7coyw4BA" name="EditCart" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_g283QN6qEeekwO7coyw4BA" name="Cart" visibility="public" type="_X_5XAN6qEeekwO7coyw4BA" isUnique="false">
+              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_g29eUN6qEeekwO7coyw4BA" name="defaultValue">
+                <language>JAVA</language>
+                <body>new ArrayList&lt;CartItem>()</body>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_g29eUd6qEeekwO7coyw4BA" name="tax_rate" visibility="public" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
+              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_g2-FYN6qEeekwO7coyw4BA" name="defaultValue">
+                <language>JAVA</language>
+                <body>0.08f</body>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_g2-FYd6qEeekwO7coyw4BA" name="deliver_fee" visibility="public" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_g2-scN6qEeekwO7coyw4BA" name="current_restaurant" visibility="public" type="_X66wYN6qEeekwO7coyw4BA" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_-tdM8N6qEeekwO7coyw4BA" name="cartitem" type="_g3AhoN6qEeekwO7coyw4BA" association="_-tXGUN6qEeekwO7coyw4BA">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-td0AN6qEeekwO7coyw4BA"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-td0Ad6qEeekwO7coyw4BA" value="1"/>
+            </ownedAttribute>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_g3TckN6qEeekwO7coyw4BA" name="addItem" specification="_g3PLIN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    Cart.add(item);
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_g3Uqsd6qEeekwO7coyw4BA" name="getAllItem" specification="_g3UDoN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return Cart;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_g3V40N6qEeekwO7coyw4BA" name="removeItem" specification="_g3VRwN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    for (int i = 0; i &lt; Cart.size(); i++) {
+        if (Cart.get(i).DishId == dish_id) {
+            if (Cart.get(i).number > 1)
+                Cart.get(i).number--;
+            else
+                Cart.remove(Cart.get(i));
+        }
+    }
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_g3XG8d6qEeekwO7coyw4BA" name="total_price" specification="_g3V40d6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    float price = 0;
+    for (int i = 0; i &lt; Cart.size(); i++) {
+        price = price + Cart.get(i).price * Cart.get(i).number;
+    }
+    return price;
+</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_g3PLIN6qEeekwO7coyw4BA" name="addItem" visibility="public" method="_g3TckN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_g3SOcN6qEeekwO7coyw4BA" name="item" type="_g3AhoN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_g3UDoN6qEeekwO7coyw4BA" name="getAllItem" visibility="public" method="_g3Uqsd6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_g3UqsN6qEeekwO7coyw4BA" type="_X_5XAN6qEeekwO7coyw4BA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_g3VRwN6qEeekwO7coyw4BA" name="removeItem" visibility="public" method="_g3V40N6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_g3VRwd6qEeekwO7coyw4BA" name="dish_id">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_g3V40d6qEeekwO7coyw4BA" name="total_price" visibility="public" method="_g3XG8d6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_g3XG8N6qEeekwO7coyw4BA" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_g3AhoN6qEeekwO7coyw4BA" name="CartItem" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_i2ftIN6qEeekwO7coyw4BA" name="DishId" visibility="public" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_i2gUMN6qEeekwO7coyw4BA" name="DishName" visibility="public" type="_X66wYN6qEeekwO7coyw4BA" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_i2gUMd6qEeekwO7coyw4BA" name="price" visibility="public" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7W3wkBydEduyofBvg4RL2w"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_i2gUMt6qEeekwO7coyw4BA" name="number" visibility="public" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedAttribute>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_i2o3Ed6qEeekwO7coyw4BA" name="CartItem" specification="_i2g7QN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    this.DishId = dish_id;
+    this.number = num;
+    Connection con = DatabaseInfo.connect2database();
+    String sql = &quot;SELECT * FROM dishes WHERE id = &quot; + Integer.toString(dish_id) + &quot;;&quot;;
+    try {
+        PreparedStatement st = con.prepareStatement(sql);
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            DishName = rs.getString(2);
+            price = rs.getFloat(4);
+        }
+    } catch (Exception e) {
+        System.out.println(&quot;setDish Error&quot;);
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+    }
+</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_i2g7QN6qEeekwO7coyw4BA" name="CartItem" visibility="public" method="_i2o3Ed6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_i2oQAN6qEeekwO7coyw4BA" name="dish_id">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_i2o3EN6qEeekwO7coyw4BA" name="num">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_kH4cgN6qEeekwO7coyw4BA" name="DatabaseInfo" visibility="public">
+            <generalization xmi:type="uml:Generalization" xmi:id="_HnS7cN6rEeekwO7coyw4BA" general="_X6mAQN6qEeekwO7coyw4BA"/>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_kH_KMN6qEeekwO7coyw4BA" name="connect2database" specification="_kH5DkN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    System.out.println(&quot;-------- PostgreSQL ------------&quot;);
+    try {
+        Class.forName(&quot;org.postgresql.Driver&quot;);
+    } catch (ClassNotFoundException e) {
+        System.out.println(&quot;Where is your PostgreSQL JDBC Driver? &quot; + &quot;Include in your library path!&quot;);
+        e.printStackTrace();
+        return null;
+    }
+    //		System.out.println(&quot;PostgreSQL JDBC Driver Registered!&quot;);
+    Connection connection = null;
+    try {
+        connection = DriverManager.getConnection(&quot;jdbc:postgresql://localhost:5432/FoodOrder&quot;, &quot;postgres&quot;, &quot;lastsorry&quot;);
+    } catch (SQLException e) {
+        System.out.println(&quot;Connection Failed! Check output console&quot;);
+        e.printStackTrace();
+        return null;
+    }
+    if (connection != null) {
+        System.out.println(&quot;You made it, take control your database now!&quot;);
+        return connection;
+    } else {
+        System.out.println(&quot;Failed to make connection!&quot;);
+        return null;
+    }
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_kIpRgN6qEeekwO7coyw4BA" name="getRestaurant" specification="_kH_xQN6qEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    Connection con = connect2database();
+    String sql;
+    if (tag == &quot;all&quot;)
+        sql = &quot;SELECT &quot; + show + &quot; FROM restaurant;&quot;;
+    else
+        sql = &quot;SELECT &quot; + show + &quot; FROM restaurant WHERE &quot; + tag + &quot;=&quot; + filter + &quot;;&quot;;
+    try {
+        PreparedStatement st = con.prepareStatement(sql);
+        ResultSet rs = st.executeQuery();
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int column = rsmd.getColumnCount();
+        int row = 0;
+        ArrayList&lt;ArrayList&lt;String>> result = new ArrayList&lt;ArrayList&lt;String>>();
+        while (rs.next()) {
+            ArrayList&lt;String> temp = new ArrayList&lt;String>();
+            for (int i = 1; i &lt;= column; i++) {
+                temp.add(rs.getString(i));
+            }
+            result.add(temp);
+        }
+        //			}
+        return result;
+    } catch (Exception e) {
+        System.out.println(&quot;why is null???&quot;);
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+        return null;
+    }
+</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_kH5DkN6qEeekwO7coyw4BA" name="connect2database" visibility="public" isStatic="true" method="_kH_KMN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_kH-jIN6qEeekwO7coyw4BA" type="_kH5qod6qEeekwO7coyw4BA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_kH_xQN6qEeekwO7coyw4BA" name="getRestaurant" visibility="public" isStatic="true" method="_kIpRgN6qEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_kIncUN6qEeekwO7coyw4BA" type="_kIAYUd6qEeekwO7coyw4BA" direction="return">
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kIncUd6qEeekwO7coyw4BA"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kIoDYN6qEeekwO7coyw4BA" value="*"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_kIoDYd6qEeekwO7coyw4BA" name="show" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_kIoqcN6qEeekwO7coyw4BA" name="tag" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_kIoqcd6qEeekwO7coyw4BA" name="filter" type="_X66wYN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_snLHkN6rEeekwO7coyw4BA" name="Login" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_snNj0N6rEeekwO7coyw4BA" name="username" visibility="private" type="_X66wYN6qEeekwO7coyw4BA" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_snOK4N6rEeekwO7coyw4BA" name="id" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_snScUN6rEeekwO7coyw4BA" name="valid" visibility="public" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_snScUd6rEeekwO7coyw4BA" name="defaultValue">
+                <language>JAVA</language>
+                <body>false</body>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_snPZAN6rEeekwO7coyw4BA" name="getId" specification="_snOx8N6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return id;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_snR1QN6rEeekwO7coyw4BA" name="setId" specification="_snQnIN6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    this.id = id;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_snbmQd6rEeekwO7coyw4BA" name="Login" specification="_snTDYN6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    if (check_security(user, pwd, actor)) {
+        this.username = user;
+        this.valid = true;
+    }
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_snc0YN6rEeekwO7coyw4BA" name="getUsername" specification="_sncNUN6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return username;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_snjiEN6rEeekwO7coyw4BA" name="check_security" specification="_snhF0N6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    Connection con = DatabaseInfo.connect2database();
+    String sql = &quot;SELECT id, password FROM restaurant WHERE name='&quot; + user + &quot;';&quot;;
+    if (actor.equals(&quot;customer&quot;))
+        sql = &quot;SELECT id, password FROM customer WHERE username='&quot; + user + &quot;';&quot;;
+    System.out.println(sql);
+    try {
+        PreparedStatement st = con.prepareStatement(sql);
+        ResultSet rs = st.executeQuery();
+        rs.next();
+        this.setId(rs.getInt(1));
+        String password = rs.getString(2);
+        if (password.equals(pwd)) {
+            return true;
+        } else {
+            //System.out.println(&quot;Failed Login!!!&quot;);
+            return false;
+        }
+    } catch (Exception e) {
+        System.out.println(&quot;There are some problems:&quot;);
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+        return false;
+    }
+</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_snOx8N6rEeekwO7coyw4BA" name="getId" visibility="public" method="_snPZAN6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_snOx8d6rEeekwO7coyw4BA" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_snQnIN6rEeekwO7coyw4BA" name="setId" visibility="public" method="_snR1QN6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_snQnId6rEeekwO7coyw4BA" name="id">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_snTDYN6rEeekwO7coyw4BA" name="Login" visibility="public" method="_snbmQd6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sna_MN6rEeekwO7coyw4BA" name="user" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sna_Md6rEeekwO7coyw4BA" name="pwd" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_snbmQN6rEeekwO7coyw4BA" name="actor" type="_X66wYN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_sncNUN6rEeekwO7coyw4BA" name="getUsername" visibility="public" method="_snc0YN6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sncNUd6rEeekwO7coyw4BA" type="_X66wYN6qEeekwO7coyw4BA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_snhF0N6rEeekwO7coyw4BA" name="check_security" visibility="public" method="_snjiEN6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_snhs4N6rEeekwO7coyw4BA" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_snhs4d6rEeekwO7coyw4BA" name="user" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sniT8N6rEeekwO7coyw4BA" name="pwd" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_sni7AN6rEeekwO7coyw4BA" name="actor" type="_X66wYN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_t3EpMN6rEeekwO7coyw4BA" name="Signup" visibility="public">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_t3FQQN6rEeekwO7coyw4BA" name="username" visibility="private" type="_X66wYN6qEeekwO7coyw4BA" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_t3HsgN6rEeekwO7coyw4BA" name="id" visibility="private" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_t3I6od6rEeekwO7coyw4BA" name="valid" visibility="public" isUnique="false">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+              <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_t3I6ot6rEeekwO7coyw4BA" name="defaultValue">
+                <language>JAVA</language>
+                <body>false</body>
+              </defaultValue>
+            </ownedAttribute>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_t3HFcd6rEeekwO7coyw4BA" name="getUsername" specification="_t3F3UN6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return username;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_t3ITkN6rEeekwO7coyw4BA" name="getId" specification="_t3Hsgd6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    return id;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_t3I6oN6rEeekwO7coyw4BA" name="setId" specification="_t3ITkd6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    this.id = id;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_t3RdgN6rEeekwO7coyw4BA" name="Signup" specification="_t3JhsN6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    if (pwd.equals(confirm_pwd)) {
+        this.username = user;
+        if (insert2database(user, pwd, actor) == 1)
+            valid = true;
+    }
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_t3T5wN6rEeekwO7coyw4BA" name="GenerateId" specification="_t3SEkN6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    ArrayList&lt;Integer> ls1 = new ArrayList&lt;Integer>();
+    ArrayList&lt;String> ls2 = new ArrayList&lt;String>();
+    Connection con = DatabaseInfo.connect2database();
+    String sql = &quot;SELECT id, username FROM customer;&quot;;
+    if (actor.equals(&quot;vendor&quot;))
+        sql = &quot;SELECT id, name FROM restaurant;&quot;;
+    try {
+        PreparedStatement st = con.prepareStatement(sql);
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            ls1.add(rs.getInt(1));
+            ls2.add(rs.getString(2));
+        }
+    } catch (Exception e) {
+        System.out.println(&quot;There are some problems:&quot;);
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+    }
+    if (ls2.contains(username))
+        return 0;
+    Random rand = new Random();
+    while (ls1.contains(rand.nextInt(10000) + 1)) {
+        rand = new Random();
+    }
+    return rand.nextInt(10000) + 1;
+</body>
+            </ownedBehavior>
+            <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_t3gHAN6rEeekwO7coyw4BA" name="insert2database" specification="_t3T5wd6rEeekwO7coyw4BA">
+              <language>JAVA</language>
+              <body>
+    System.out.println(actor);
+    this.id = GenerateId(actor, user);
+    if (id == 0)
+        return 0;
+    Connection con = DatabaseInfo.connect2database();
+    String sql = &quot;INSERT INTO customer VALUES(&quot; + id + &quot;, '&quot; + user + &quot;','&quot; + pwd + &quot;');&quot;;
+    if (actor.equals(&quot;vendor&quot;))
+        sql = &quot;INSERT INTO restaurant VALUES(&quot; + id + &quot;, '&quot; + user + &quot;','&quot; + pwd + &quot;', 0.0);&quot;;
+    System.out.println(sql);
+    try {
+        PreparedStatement st = con.prepareStatement(sql);
+        int insert_result = st.executeUpdate();
+        if (insert_result == 0)
+            System.out.println(&quot;Fail&quot;);
+        return insert_result;
+    } catch (Exception e) {
+        System.out.println(&quot;There are some problems:&quot;);
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+        return 0;
+    }
+</body>
+            </ownedBehavior>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_t3F3UN6rEeekwO7coyw4BA" name="getUsername" visibility="public" method="_t3HFcd6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3HFcN6rEeekwO7coyw4BA" type="_X66wYN6qEeekwO7coyw4BA" direction="return"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_t3Hsgd6rEeekwO7coyw4BA" name="getId" visibility="public" method="_t3ITkN6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3Hsgt6rEeekwO7coyw4BA" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_t3ITkd6rEeekwO7coyw4BA" name="setId" visibility="public" method="_t3I6oN6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3ITkt6rEeekwO7coyw4BA" name="id">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_t3JhsN6rEeekwO7coyw4BA" name="Signup" visibility="public" method="_t3RdgN6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3PBQN6rEeekwO7coyw4BA" name="user" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3PBQd6rEeekwO7coyw4BA" name="pwd" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3PoUN6rEeekwO7coyw4BA" name="confirm_pwd" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3Q2cN6rEeekwO7coyw4BA" name="actor" type="_X66wYN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_t3SEkN6rEeekwO7coyw4BA" name="GenerateId" visibility="public" method="_t3T5wN6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3SEkd6rEeekwO7coyw4BA" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3SroN6rEeekwO7coyw4BA" name="username" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3TSsN6rEeekwO7coyw4BA" name="actor" type="_X66wYN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_t3T5wd6rEeekwO7coyw4BA" name="insert2database" visibility="public" method="_t3gHAN6rEeekwO7coyw4BA">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3XkIN6rEeekwO7coyw4BA" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedParameter>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3YyQN6rEeekwO7coyw4BA" name="user" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3ZZUN6rEeekwO7coyw4BA" name="pwd" type="_X66wYN6qEeekwO7coyw4BA"/>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_t3ZZUd6rEeekwO7coyw4BA" name="actor" type="_X66wYN6qEeekwO7coyw4BA"/>
+            </ownedOperation>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_X647MN6qEeekwO7coyw4BA" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_X65iQN6qEeekwO7coyw4BA" name="java">
+        <packagedElement xmi:type="uml:Package" xmi:id="_X66JUN6qEeekwO7coyw4BA" name="lang">
+          <packagedElement xmi:type="uml:Class" xmi:id="_X66wYN6qEeekwO7coyw4BA" name="String"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_kH5qoN6qEeekwO7coyw4BA" name="sql">
+          <packagedElement xmi:type="uml:Class" xmi:id="_kH5qod6qEeekwO7coyw4BA" name="Connection"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_kIAYUN6qEeekwO7coyw4BA" name="util">
+          <packagedElement xmi:type="uml:Class" xmi:id="_kIAYUd6qEeekwO7coyw4BA" name="ArrayList"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_-tXGUN6qEeekwO7coyw4BA" memberEnd="_-tdM8N6qEeekwO7coyw4BA _-td0At6qEeekwO7coyw4BA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-tbXwN6qEeekwO7coyw4BA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-tb-0N6qEeekwO7coyw4BA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_-td0At6qEeekwO7coyw4BA" name="editcart" type="_g28QMN6qEeekwO7coyw4BA" association="_-tXGUN6qEeekwO7coyw4BA"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_X4ix0N6qEeekwO7coyw4BA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X4lOEN6qEeekwO7coyw4BA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_X5U08N6qEeekwO7coyw4BA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X5WDEN6qEeekwO7coyw4BA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_X5o-AN6qEeekwO7coyw4BA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X5plEN6qEeekwO7coyw4BA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <PapyrusJava:External xmi:id="_X_yCQN6qEeekwO7coyw4BA" name="java.lang.String" base_Classifier="_X66wYN6qEeekwO7coyw4BA"/>
+  <PapyrusJava:External xmi:id="_X__doN6qEeekwO7coyw4BA" name="ArrayList" base_Classifier="_X_5XAN6qEeekwO7coyw4BA"/>
+  <standard:Create xmi:id="_YAoW0N6qEeekwO7coyw4BA" base_BehavioralFeature="_YAhpIN6qEeekwO7coyw4BA"/>
+  <standard:Create xmi:id="_i2ma0N6qEeekwO7coyw4BA" base_BehavioralFeature="_i2g7QN6qEeekwO7coyw4BA"/>
+  <PapyrusJava:External xmi:id="_kH98EN6qEeekwO7coyw4BA" name="java.sql.Connection" base_Classifier="_kH5qod6qEeekwO7coyw4BA"/>
+  <PapyrusJava:External xmi:id="_kIlnIN6qEeekwO7coyw4BA" name="java.util.ArrayList" base_Classifier="_kIAYUd6qEeekwO7coyw4BA"/>
+  <standard:Create xmi:id="_snZxEN6rEeekwO7coyw4BA" base_BehavioralFeature="_snTDYN6rEeekwO7coyw4BA"/>
+  <standard:Create xmi:id="_t3NzIN6rEeekwO7coyw4BA" base_BehavioralFeature="_t3JhsN6rEeekwO7coyw4BA"/>
+</xmi:XMI>

@@ -1,0 +1,209 @@
+body {
+	height: 100%;
+	text-align: center;
+	width: 100%;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+
+#contentAndCart {
+    overflow: hidden;
+    padding-top: 1em;
+}
+
+#cart {
+    margin-right: 10px;
+    background-color: white;
+    width: 19em;
+    height: auto;
+    float: right;
+    border: solid #302030 1.5px;
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    box-shadow: 0px 2px 19px 1px rgba(0,0,0,0.6);
+    z-index: 999;
+    position: fixed;
+    right: 3%;
+    top: 12%;
+}
+
+#cartHeader {
+    background-color: darkgray;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    margin-right: 1px;
+    padding: 3px 0;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.8);
+}
+
+
+#resName {
+    padding: 8px 5px;
+    border-bottom: solid #302030 px;
+    box-shadow: 0px 2px 1px 0px rgba(0,0,0,0.9);
+}
+
+#form {
+    margin: 0 0 1em 0;
+}
+
+
+#items {
+    padding: 0 3px 0px 5px;
+    box-shadow: 0px 2px 1px 0px rgba(0,0,0,0.9);
+}
+
+.item {
+    border-top: dashed darkslategrey 1px;
+    padding: 8px 0;
+    height: auto;
+}
+
+.itemName {
+    display: inline-block;
+    width: 12em;
+}
+
+.itemNum {
+    width: 5em;
+    display: inline-block;
+    text-align: right;
+    padding-right: 1em;
+    color:forestgreen;
+}
+
+#total {
+    padding: 10px 3px 8px 5px;
+}
+
+.totalLabel {
+    display: inline-block;
+    width: 12em;
+}
+
+#TOTAL {
+    font-weight: 600;
+    color:darkgreen;
+}
+
+#return_btn {
+    width: 11em;
+    height: 1.7em;
+    margin: 10px 4em;
+    border: solid #302030 1.5px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: lightgreen;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+}
+
+#return_btn a {
+    text-decoration: none;
+    color: #302030;
+}
+
+
+
+
+#content {
+    display: inline-block;
+    margin-right: 12%;
+    margin-left: 2%;
+    width: 50em;
+	padding: 0 0 1em 0;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    z-index: 1;
+}
+
+#tagline1 {
+    color: black;
+    font-size: 19px;
+    padding-left: 1em;
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: 700;
+    text-align: left;
+    background-color: darkgray;
+    border-top: solid #302030 1.5px;
+}
+
+
+label {
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: top
+}
+
+#phoneL {
+    margin-right: 11px;
+}
+
+#specInstL {
+    margin-right: 14px;
+}
+
+#addressL {
+    margin-right: 15px;
+}
+
+#cardNumL {
+    margin-right: 23px;
+}
+
+#expiDateL {
+    margin-right: 8px;
+}
+
+#billZipL {
+    margin-right: 5px;
+}
+
+#billAddrL {
+    margin-right: 14px;
+}
+
+.inputs {
+    width: 37em;
+    height: 2em;
+    margin-bottom: 2em;
+    border: solid #302030 1.5px;
+    border-radius: 5px; 
+}
+
+.inputs_name {
+    width: 15em;
+    height: 2em;
+    margin-bottom: 2em;
+    border: solid #302030 1.5px;
+    border-radius: 5px; 
+}
+
+#specInst {
+    width: 34em;
+    height: 6em;
+    margin-bottom: 2em;
+    border: solid #302030 1.5px;
+    border-radius: 5px;
+}
+
+#address {
+    width: 41em;
+    height: 6em;
+    margin-bottom: 1em;
+    border: solid #302030 1.5px;
+    border-radius: 5px;
+}
+
+#submit_btn{
+    width: 10em;
+    margin-top: 1em;
+    border: solid #302030 1.5px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: lightgreen;
+}

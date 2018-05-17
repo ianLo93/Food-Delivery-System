@@ -1,0 +1,359 @@
+body {
+	height: 100%;
+	text-align: center;
+	width: 100%;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+#title {
+    height: 70px;
+    width: 100%;
+    min-width: 37em;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.09);
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    background-color: white;
+}
+
+#resImg {
+    float: left;
+    margin: 5px 8px 5px 2em;
+    height: 60px;
+}
+
+#resImg img{
+    width: auto;
+    height: 60px;
+}
+
+#resTitle {
+    float: left;
+    height: 60px;
+    margin: 5px;
+    line-height: 60px;
+    font-weight: 600;
+}
+
+#deliFee {
+    float: right;
+    height: 30px;
+    margin: 20px;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+#tabs {
+    width: 70em;
+    height: auto;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    z-index: 100;
+}
+
+.tab {
+    display: inline-block;
+    min-width: 100px;
+    height: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.6);
+    padding: 5px 12px;
+    margin: 3px 0;
+    text-decoration: none;
+    color: black;
+    background-color:whitesmoke;
+    z-index: 100;
+}
+
+.tabFixed {
+    position: fixed;
+    top: 70px;
+}
+
+.tab:hover {
+    background-color: darkgrey;
+}
+
+
+
+
+
+
+
+#contentAndCart {
+    overflow: hidden;
+    padding-top: 1em;
+}
+
+
+#cart {
+    margin-right: 10px;
+    background-color: white;
+    width: 20em;
+    height: auto;
+    float: right;
+    border: solid #302030 1.5px;
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    box-shadow: 0px 2px 19px 1px rgba(0,0,0,0.6);
+    z-index: 999;
+    position: fixed;
+    right: 3%;
+    top: 20%;
+}
+
+#cartHeader {
+    width: 100%;
+    background-color: lightgreen;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    margin-right: 1px;
+    padding: 3px 0;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.8);
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+
+#resName {
+    padding: 8px 5px;
+    border-bottom: solid #302030 px;
+    box-shadow: 0px 2px 1px 0px rgba(0,0,0,0.9);
+}
+
+#form {
+    margin: 0 0 1em 0;
+    display: block;
+}
+
+
+#items {
+    padding: 0 3px 0px 5px;
+    box-shadow: 0px 2px 1px 0px rgba(0,0,0,0.9);
+}
+
+.item {
+    border-top: dashed darkslategrey 1px;
+    padding: 8px 0;
+    height: auto;
+}
+
+.itemName {
+    display: inline-block;
+    width: 10.5em;
+}
+
+.itemQtyL {
+    width: 2em;
+    display: inline-block;
+    font-size: 12px;
+    color: darkolivegreen;
+    text-align: right;
+}
+
+.itemQty {
+    width: 1.2em;
+    display: inline-block;
+    font-size: 12px;
+    color: darkolivegreen;
+    text-align: left;
+}
+
+.itemNum {
+    width: 4em;
+    display: inline-block;
+    text-align: right;
+    color:forestgreen;
+}
+
+.remove {
+    background: url(../images/icons/008-up-arrow.png);
+    background-size: cover;
+    width: 1.8em;
+    height: 1.8em;
+    border: none;
+}
+
+#total {
+    padding: 10px 3px 8px 5px;
+}
+
+.totalLabel {
+    display: inline-block;
+    width: 12em;
+}
+
+#TOTALlabel {
+    font-weight: 600;
+}
+
+#TOTAL {
+    font-weight: 600;
+    color:darkgreen;
+}
+
+
+#return_btn {
+    width: 11em;
+    height: 1.7em;
+    margin: 10px 4em;
+    border: solid #302030 1.5px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: lightgreen;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+}
+
+#return_btn a {
+    text-decoration: none;
+    color: #302030;
+}
+
+
+
+
+#content {
+    display: inline-block;
+    margin-right: 12%;
+    margin-left: 2%;
+    width: 68em;
+	padding: 0 0 1em 0;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    z-index: 100;
+    top: 1000px;
+}
+
+#contentBody {
+    margin-top: 0px;
+    text-align: left;
+}
+
+.tagline {
+    color: black;
+    font-size: 19px;
+    padding-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: 700;
+    text-align: left;
+    background-color: darkgray;
+    border-top: solid #302030 1.5px;
+}
+
+.module {
+	margin-left: 2.5em;
+}
+
+.cell {
+    background-color: white;
+    width: 300px;
+    height: 150px;
+    display: inline-block;
+    text-align: center;
+    margin: 0 1em 1em 1em;
+    border: solid #302030 1.5px;
+    border-radius: 10px;
+    opacity: 0.95;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.cell img {
+    width: 130px;
+    height: 130px;
+    border: solid #302030 1.5px;
+    border-radius: 10px;
+    margin: 10px 0 10px 6px;
+    display: inline-block;
+    float: left;
+}
+
+.cellRight {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    float: left;
+}
+
+.cell label {
+    width: 150px;
+    height: 75px;
+    display: inline-block;
+    padding: 10px 5px 0 5px;
+    text-align: center;
+}
+
+.pricediv {
+    width: 150px;
+    height: 20px;
+    display: inline-block;
+}
+
+.priceL {
+    width: 60px;
+    height: 20px;
+    display: inline-block;
+    float: left;
+    text-align: right;
+    color: forestgreen;
+}
+
+.price {
+    width: 90px;
+    height: 20px;
+    display: inline-block;
+    text-align: left;
+    color: forestgreen;
+}
+
+.add_btn {
+    width: 100px;
+    height: 30px;
+    line-height: 0px;
+    margin: 5px 0 10px 0;
+    border: solid #302030 1.5px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: lightgreen;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.7);
+}
+
+.counter {
+    width: 100px;
+    height: 30px;
+    margin: 10px 0;
+}
+
+.upDown {
+    width: 23px;
+    height: inherit;
+    display: inline-block;
+    border: solid #302030 1.5px;
+    border-radius: 3px;
+    font-size: 15px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: lightgreen;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.7);
+}
+
+.qty {
+    height: 25px;
+    width: 39px;
+    display: inline-block;
+    border: solid #302030 1.5px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.7);
+    text-align: center;
+}
+
