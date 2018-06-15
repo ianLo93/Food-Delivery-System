@@ -9,4 +9,4 @@ Final Project Hand-out: https://github.com/ianLo93/SDproject/blob/master/Project
 ## Set up
 
 You must install Eclipse, Java and tomcat to run the website on your computer. And you also need to download and load 
-postgresql-42.1.4 to the project.
+postgresql-42.1.4 to the project workspace.
